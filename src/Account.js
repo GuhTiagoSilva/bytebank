@@ -1,14 +1,11 @@
 import { Client } from "./Client.js";
 
 export class Account{
-    static accountNumber = 0;
+    static numberOfAccountsCreated = 0;
     agency;
     _Client;
    // #balance =0 https://github.com/tc39/proposal-class-fields#private-fields
-   _balance = 0;
-    
-
-
+   
     set Client(newValue){
         if(newValue instanceof Client){
             this._Client = newValue;
@@ -26,7 +23,8 @@ export class Account{
     constructor(agency, Client){
         this.agency = agency;
         this.Client = Client;
-        Account.accountNumber += 1;
+        this._balance = 0;
+        Account.numberOfAccountsCreated += 1;
     }
 
 
